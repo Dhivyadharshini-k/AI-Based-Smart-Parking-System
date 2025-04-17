@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Parking Reservation</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+  <div class="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
+    <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">Smart Parking Reservation</h2>
+    
+    <form id="parkingForm" class="space-y-4">
+      <div>
+        <label class="block mb-1 font-medium">Name</label>
+        <input type="text" name="name" class="w-full px-4 py-2 border rounded-lg" required />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Vehicle Number</label>
+        <input type="text" name="vehicleNumber" class="w-full px-4 py-2 border rounded-lg" required />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Vehicle Type</label>
+        <select name="vehicleType" class="w-full px-4 py-2 border rounded-lg">
+          <option value="car">Car</option>
+          <option value="bike">Bike</option>
+          <option value="van">Van</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Arrival Time</label>
+        <input type="datetime-local" name="arrivalTime" class="w-full px-4 py-2 border rounded-lg" required />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Duration (in hours)</label>
+        <input type="number" name="duration" min="1" class="w-full px-4 py-2 border rounded-lg" required />
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Preference</label>
+        <select name="preference" class="w-full px-4 py-2 border rounded-lg">
+          <option value="nearEntrance">Near Entrance</option>
+          <option value="shaded">Shaded Area</option>
+          <option value="any">No Preference</option>
+        </select>
+      </div>
+
+      <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700">
+        Reserve Slot
+      </button>
+    </form>
+
+    <div id="result" class="mt-6 text-center text-green-600 font-semibold hidden">
+      Slot reserved successfully!
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('parkingForm');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Here you would send form data to your backend with AI logic
+      resultDiv.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>
